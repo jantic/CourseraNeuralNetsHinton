@@ -206,17 +206,17 @@ fprintf(1, '\rRunning test ...');
 if OctaveMode
   fflush(1);
 end
-[embedding_layer_state, hidden_layer_state, output_layer_state] = ...
-  fprop(test_input, word_embedding_weights, embed_to_hid_weights,...
-        hid_to_output_weights, hid_bias, output_bias);
-datasetsize = size(test_input, 2);
-expanded_test_target = expansion_matrix(:, test_target);
-CE = -sum(sum(...
-  expanded_test_target .* log(output_layer_state + tiny))) / datasetsize;
-fprintf(1, '\rFinal Test CE %.3f\n', CE);
-if OctaveMode
-  fflush(1);
-end
+#[embedding_layer_state, hidden_layer_state, output_layer_state] = ...
+#  fprop(test_input, word_embedding_weights, embed_to_hid_weights,...
+#        hid_to_output_weights, hid_bias, output_bias);
+#datasetsize = size(test_input, 2);
+#expanded_test_target = expansion_matrix(:, test_target);
+#CE = -sum(sum(...
+#  expanded_test_target .* log(output_layer_state + tiny))) / datasetsize;
+#fprintf(1, '\rFinal Test CE %.3f\n', CE);
+#if OctaveMode
+#  fflush(1);
+#end
 
 model.word_embedding_weights = word_embedding_weights;
 model.embed_to_hid_weights = embed_to_hid_weights;
